@@ -29,23 +29,23 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-  unit:
-    needs: [dependencies]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          cache: 'npm'
-          node-version: '16'
-      - name: Install Dependencies
-        run: npm ci
-      - name: Run tests
-        run: npm run test
+#  unit:
+#    needs: [dependencies]
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Checkout
+#        uses: actions/checkout@v3
+#        with:
+#          fetch-depth: 0
+#      - name: Setup Node
+#        uses: actions/setup-node@v3
+#        with:
+#          cache: 'npm'
+#          node-version: '16'
+#      - name: Install Dependencies
+#        run: npm ci
+#      - name: Run tests
+#        run: npm run test
 
   build:
     runs-on: ubuntu-latest
@@ -71,7 +71,7 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    needs: [build, unit]
+    needs: [build]
     steps:
       - name: Get built App
         uses: actions/download-artifact@v2
@@ -83,5 +83,5 @@ jobs:
         if: ${{ github.ref == 'refs/heads/main' }}
         with:
           github_token: ${{ github.token }}
-          publish_dir: ./dist
+          publish_dir: ./dist/pokemon
           force_orphan: true
