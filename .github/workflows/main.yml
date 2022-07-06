@@ -61,8 +61,10 @@ jobs:
           node-version: '16'
       - name: Cache
         run: npm ci
+      - name: Angular CLI
+        run: npm i -g @angular/cli
       - name: Build
-        run: npm run build
+        run: ng build --base-href /pokemon
       - name: Save built App
         uses: actions/upload-artifact@v2
         with:
