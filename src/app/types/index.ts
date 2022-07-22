@@ -1,2 +1,2 @@
-export { Pokemon } from './pokemon';
-export { PaginatedResponse } from './response';
+export { Pokemon } from './pokemon'
+export { PaginatedResponse } from './response'

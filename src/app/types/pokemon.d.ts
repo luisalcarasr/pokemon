@@ -1,11 +1,11 @@
 interface Sprites {
-  front_default: string;
+  front_default: string
 }
 
 export interface Pokemon {
-  name: string;
+  name: string
 }
 
 export interface DetailedPokemon extends Pokemon {
-  sprites: Sprites;
+  sprites: Sprites
 }

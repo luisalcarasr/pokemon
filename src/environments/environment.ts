@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   api_url: 'https://pokeapi.co/api/v2',
-};
+}
 
 /*
  * For easier debugging in development mode, you can import the following file
